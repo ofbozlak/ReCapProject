@@ -10,11 +10,36 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            //EfCarDalTest();
+            //EfBrandTest();
+            CarManager carManager = new CarManager(new EfCarDal());
 
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine("CarId" + ":" +car.CarId + " -- " + "BrandName "+":" + car.BrandName + "-- " +" ColorName" + ":" +car.ColorName + "-- " +" DailyPrice"+ ":"+ car.DailyPrice);
+            }
+
+            
+           
+        }
+
+        private static void EfBrandTest()
+        {
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            Brand brand1 = new Brand
+            {
+                BrandName = "Tesla"
+            };
+
+            brandManager.Add(brand1);
+        }
+
+        private static void EfCarDalTest()
+        {
             Car car1 = new Car
             {
-                CarId =6,
-                CategoryId=2,
+                CarId = 6,
+                CategoryId = 2,
                 ColorId = 2,
                 BrandId = 1,
                 ModelId = 2019,
@@ -24,7 +49,7 @@ namespace ConsoleUI
 
 
             CarManager carManager = new CarManager(new EfCarDal());
-            carManager.Add(car1); 
+            carManager.Add(car1);
         }
     }
 }
