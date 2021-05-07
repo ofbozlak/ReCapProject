@@ -14,11 +14,18 @@ namespace ConsoleUI
             //EfBrandTest();
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetCarDetails())
+            var result = carManager.GetCarDetails();
+            if (result.Success==true)
             {
-                Console.WriteLine("CarId" + ":" +car.CarId + " -- " + "BrandName "+":" + car.BrandName + "-- " +" ColorName" + ":" +car.ColorName + "-- " +" DailyPrice"+ ":"+ car.DailyPrice);
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine("CarId" + ":" + car.CarId + " -- " + "BrandName " + ":" + car.BrandName + "-- " + " ColorName" + ":" + car.ColorName + "-- " + " DailyPrice" + ":" + car.DailyPrice);
+                }
             }
-
+            else
+            {
+                Console.WriteLine(result.Massage);
+            }
             
            
         }
