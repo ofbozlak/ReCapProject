@@ -10,12 +10,44 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //EfCarDalTest();
+            EfCarDalTest();
             //EfBrandTest();
-            CarManager carManager = new CarManager(new EfCarDal());
+            //CarManager carManager = new CarManager(new EfCarDal());
+            //GetCarDetailsText(carManager);
+
+
+            //RentalCar rentalCar1 = new RentalCar()
+            //{
+            //    RentalCarId=2,
+            //    CarId = 3,
+            //    CustomerId = 2,
+            //    RentDate = "8.05.2021",
+            //    ReturnDate= "10.05.2021"
+            //};
+
+
+            //RentalCarManager rentalCarManager = new RentalCarManager(new EfRentalCarDal());
+            //rentalCarManager.Add(rentalCar1);
+
+            //var result = rentalCarManager.Add(rentalCar1);
+            //if (result.Success == true)
+            //{
+            //    Console.WriteLine(result.Massage);
+            //}
+            //else
+            //{
+            //    Console.WriteLine(result.Massage);
+            //}
+
+
+        }
+
+        private static void GetCarDetailsText(CarManager carManager)
+        {
+            
 
             var result = carManager.GetCarDetails();
-            if (result.Success==true)
+            if (result.Success == true)
             {
                 foreach (var car in result.Data)
                 {
@@ -26,8 +58,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Massage);
             }
-            
-           
         }
 
         private static void EfBrandTest()
@@ -44,13 +74,13 @@ namespace ConsoleUI
         private static void EfCarDalTest()
         {
             Car car1 = new Car
-            {
-                CarId = 6,
+            {      
+                CarId=7,
                 CategoryId = 2,
                 ColorId = 2,
                 BrandId = 1,
                 ModelId = 2019,
-                DailyPrice = 89000,
+                DailyPrice = 89,
                 Description = "Temiz"
             };
 

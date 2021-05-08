@@ -29,7 +29,7 @@ namespace Business.Concrete
             }
             else
             {
-                return new ErrorResult(Messages.CartDescriptionInvalid);
+                return new ErrorResult(Messages.CarDescriptionInvalid);
             }
         }
 
