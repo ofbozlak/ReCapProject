@@ -1,7 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
-using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -22,15 +21,15 @@ namespace Business.Concrete
 
         public IResult Add(RentalCar rentalCar)
         {
-            //if ((rentalCar.RentDate == null && rentalCar.ReturnDate == null) || (!(rentalCar.RentDate == null) && !(rentalCar.ReturnDate==null)))
-            //{
+            if ((rentalCar.RentDate == null && rentalCar.ReturnDate == null) || (!(rentalCar.RentDate == null) && !(rentalCar.ReturnDate==null)))
+            {
                 return new SuccessResult(Messages.RentalAdded);
                 _rentalCarDal.Add(rentalCar);
-           // }
-           // else
-           // {
-              //  return new ErrorResult(Messages.NotRentalAdded);
-           // }
+            }
+            else
+            {
+                return new ErrorResult(Messages.NotRentalAdded);
+            }
             
         }
 
