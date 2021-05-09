@@ -5,6 +5,7 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -21,10 +22,12 @@ namespace Business.Concrete
 
         public IResult Add(RentalCar rentalCar)
         {
-            if ((rentalCar.RentDate == null && rentalCar.ReturnDate == null) || (!(rentalCar.RentDate == null) && !(rentalCar.ReturnDate==null)))
+            var result =_rentalCarDal.GetAll(c=>(c.CarId == rentalCar.CarId)&& !(c.RentDate==null && c.ReturnDate==null) && (c.ReturnDate==null)).ToList();
+            if (result.Count==0)
             {
-                return new SuccessResult(Messages.RentalAdded);
                 _rentalCarDal.Add(rentalCar);
+                return new SuccessResult(Messages.RentalAdded);
+                        
             }
             else
             {
@@ -35,8 +38,9 @@ namespace Business.Concrete
 
         public IResult Delete(RentalCar rentalCar)
         {
-            return new SuccessResult(Messages.RentalDeleted);
             _rentalCarDal.Delete(rentalCar);
+            return new SuccessResult(Messages.RentalDeleted);
+            
         }
 
         public IDataResult<List<RentalCar>> GetAll()
@@ -51,8 +55,9 @@ namespace Business.Concrete
 
         public IResult Update(RentalCar rentalCar)
         {
-            return new SuccessResult(Messages.RentalUpdated);
             _rentalCarDal.Update(rentalCar);
+            return new SuccessResult(Messages.RentalUpdated);
+            
         }
     }
 }
