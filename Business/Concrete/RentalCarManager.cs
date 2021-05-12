@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,7 +21,7 @@ namespace Business.Concrete
             _rentalCarDal = rentalCarDal;
         }
 
-
+        [ValidationAspect(typeof(RentalCarValidator))]
         public IResult Add(RentalCar rentalCar)
         {
             var result =_rentalCarDal.GetAll(c=>(c.CarId == rentalCar.CarId)&& !(c.RentDate==null && c.ReturnDate==null) && (c.ReturnDate==null)).ToList();

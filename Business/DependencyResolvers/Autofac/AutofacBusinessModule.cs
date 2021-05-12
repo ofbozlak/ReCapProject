@@ -19,7 +19,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<ColorManager>().As<IColorService>().SingleInstance();
             builder.RegisterType<CustomerManager>().As<ICustomerService>().SingleInstance();
             builder.RegisterType<RentalCarManager>().As<IRentalCarService>().SingleInstance();
-            builder.RegisterType<UserManager>().As<IRentalCarService>().SingleInstance();
+            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
