@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("add")]
+        [HttpPost("add")]
         public IActionResult Add(Car car)
         {
             var result = _carService.Add(car);
@@ -43,7 +43,7 @@ namespace WebAPI.Controllers
         }
 
 
-        [HttpGet("delete")]
+        [HttpPost("delete")]
         public IActionResult Delete(Car car)
         {
             var result = _carService.Delete(car);
@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("getcardetails")]
+        [HttpPost("getcardetails")]
         public IActionResult GetCarDetails()
         {
             var result = _carService.GetCarDetails();
@@ -65,7 +65,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("getcarsbybrandid")]
+        [HttpPost("getcarsbybrandid")]
         public IActionResult GetCarsByBrandId(int id)
         {
             var result = _carService.GetCarsByBrandId(id);
@@ -76,7 +76,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("update")]
+        [HttpPost("update")]
         public IActionResult Update(Car car)
         {
             var result = _carService.Update(car);

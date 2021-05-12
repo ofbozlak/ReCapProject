@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("add")]
+        [HttpPost("add")]
         public IActionResult Add(RentalCar rentalCar)
         {
             var result = _rentalCarService.Add(rentalCar);
@@ -43,7 +43,7 @@ namespace WebAPI.Controllers
         }
 
 
-        [HttpGet("delete")]
+        [HttpPost("delete")]
         public IActionResult Delete(RentalCar rentalCar)
         {
             var result = _rentalCarService.Delete(rentalCar);
@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("getbyid")]
+        [HttpPost("getbyid")]
         public IActionResult GetById(int id)
         {
             var result = _rentalCarService.GetById(id);
@@ -65,7 +65,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("update")]
+        [HttpPost("update")]
         public IActionResult Update(RentalCar rentalCar)
         {
             var result = _rentalCarService.Update(rentalCar);

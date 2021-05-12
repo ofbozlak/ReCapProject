@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("add")]
+        [HttpPost("add")]
         public IActionResult Add(Color color)
         {
             var result = _colorService.Add(color);
@@ -44,7 +44,7 @@ namespace WebAPI.Controllers
         }
 
 
-        [HttpGet("delete")]
+        [HttpPost("delete")]
         public IActionResult Delete(Color color)
         {
             var result = _colorService.Delete(color);
@@ -55,7 +55,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("getbyid")]
+        [HttpPost("getbyid")]
         public IActionResult GetById(int id)
         {
             var result = _colorService.GetById(id);
@@ -66,7 +66,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Massage);
         }
 
-        [HttpGet("update")]
+        [HttpPost("update")]
         public IActionResult Update(Color color)
         {
             var result = _colorService.Update(color);
